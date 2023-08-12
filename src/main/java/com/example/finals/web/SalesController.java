@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-
+//GitHub Repository
+//https://github.com/aldrin730/finals/tree/master
 @Controller
 @AllArgsConstructor
 public class SalesController {
