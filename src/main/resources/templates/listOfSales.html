@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Sales Summary Table</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    h1, h2 {
+      text-align: center;
+    }
+    form {
+        background-color: blue;
+    }
+  </style>
+</head>
+<body>
+<h1>Final Exam Set C</h1>
+<h2>Category Sales Summary Table</h2>
+<div class="container mt-2">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Category Code</th><th>Category Description</th><th>Total Sales</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="c:${categoryList}">
+                <td th:text="${c.getCatcode()}"></td>
+                <td th:text="${c.getCatdesc()}"></td>
+            </tr>
+            </tbody>
+        </table>
+</div>
+<div class="container mt-2">
+    <form action="#" th:action="@{/search}" th:object="${sales}" method="POST">
+        <div class="form-group col-md-6">
+            <label for="recno">Receipt No: </label>
+            <input type="text" th:field="*{recno}" class="form-control" id="recno">
+        </div>
+    </form>
+</div>
+</body>
+</html>
