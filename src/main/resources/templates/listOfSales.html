@@ -35,12 +35,23 @@
         </table>
 </div>
 <div class="container mt-2">
-    <form action="#" th:action="@{/search}" th:object="${sales}" method="POST">
-        <div class="form-group col-md-6">
-            <label for="recno">Receipt No: </label>
-            <input type="text" th:field="*{recno}" class="form-control" id="recno">
-        </div>
-    </form>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Receipt No</th><th>Item Code</th><th>Quantity</th><th>Transaction Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="s:${salesList}">
+            <td th:text="${s.getRecno()()}"></td>
+            <td th:text="${s.getIcode()}"></td>
+            <td th:text="${s.getQty()}"></td>
+            <td th:text="${s.getDot()}"></td>
+            <td><a class="btn btn-danger" onClick="return confirm('Are you sure you want to delete the record ?')" th:href="@{delete(id=${s.getRecno()})}">Delete</a></td>
+            <td><a class="btn btn-success" th:href="@{delete(id=${s.getRecno()})}">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
